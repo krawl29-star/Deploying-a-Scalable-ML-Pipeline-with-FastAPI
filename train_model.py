@@ -14,7 +14,7 @@ from ml.model import (
 )
 #Loads the cencus.csv 
 project_path = os.getcwd()
-data_path = os.path.join(project_path, "data", "cleaned_data.csv")
+data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path)
 
