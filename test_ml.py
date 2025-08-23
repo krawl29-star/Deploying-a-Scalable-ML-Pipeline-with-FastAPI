@@ -2,15 +2,15 @@ import pytest
 from train_model import X_train, X_test
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from ml.model import compute_model_metrics
+from ml.model import train_model, compute_model_metrics
 
 # Implement the first test. 
 def test_columns():
     """
     Tests training and test to ensure same number of columns
     """
-    training_cols = x.train.shape[1]
-    test_cols = x_test.shape[1]
+    training_cols = X_train.shape[1]
+    test_cols = X_test.shape[1]
 
     assert training_cols == test_cols # Should assert true
 
