@@ -1,28 +1,42 @@
 import pytest
-# TODO: add necessary import
+from train_model import X_train, X_test
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from ml.model import compute_model_metrics
 
-# TODO: implement the first test. Change the function name and input as needed
-def test_one():
+# Implement the first test. 
+def test_columns():
     """
-    # add description for the first test
+    Tests training and test to ensure same number of columns
     """
-    # Your code here
-    pass
+    training_cols = x.train.shape[1]
+    test_cols = x_test.shape[1]
 
-
-# TODO: implement the second test. Change the function name and input as needed
-def test_two():
-    """
-    # add description for the second test
-    """
-    # Your code here
-    pass
+    assert training_cols == test_cols # Should assert true
 
 
-# TODO: implement the third test. Change the function name and input as needed
-def test_three():
+# Implements the second test. 
+def test_randomforest():
     """
-    # add description for the third test
+    Tests if the classifier model used is RandomForest
     """
-    # Your code here
-    pass
+    X = np.array([[1, 2, 3], [4, 5, 6]])
+    y = np.array([1, 2])
+
+    model = train_model(X, y)
+    assert isinstance(model, RandomForestClassifier) # Should assert true
+    
+
+
+# Implements the third test. 
+def test_model_metrics():
+    """
+    Tests if the model metrics populate as anticipated 
+    """
+    y_true = [1, 0, 0, 1, 1, 0, 1, 0] 
+    y_preds = [1, 0, 0, 1, 1, 0, 1, 0] 
+    precision, recall, fbeta = compute_model_metrics(y_true, y_preds)
+    
+    assert fbeta is not None
+    assert recall is not None
+    assert precision is not None
